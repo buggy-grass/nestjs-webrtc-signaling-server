@@ -1,0 +1,13 @@
+model MediaSession {
+  id        String   @id @default(uuid())
+
+  peerId    String
+  peer      Peer     @relation(fields: [peerId], references: [id])
+
+  audio     Boolean  @default(true)
+  video     Boolean  @default(true)
+  screen    Boolean  @default(false)
+
+  startedAt DateTime @default(now())
+  endedAt   DateTime?
+}

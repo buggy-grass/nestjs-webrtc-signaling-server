@@ -6,7 +6,8 @@ export const envSchema = z.object({
   JWT_SECRET_KEY: z
     .string()
     .min(10, 'JWT_SECRET_KEY must be at least 10 characters long'),
-  DATABASE: z.string().min(1, 'Database url error'),
+  DATABASE_URL: z.string().min(1, 'Database url error'),
+  REDIS_URL: z.string().min(1, 'Redis host error'),
 });
 
 export type Env = z.infer<typeof envSchema>;

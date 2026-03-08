@@ -1,0 +1,12 @@
+model Device {
+  id        String   @id @default(uuid())
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+
+  deviceName String?
+  platform   String?
+  ipAddress  String?
+
+  createdAt  DateTime @default(now())
+}
