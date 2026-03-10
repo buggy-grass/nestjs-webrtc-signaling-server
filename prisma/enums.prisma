@@ -1,0 +1,21 @@
+enum UserRole {
+  USER
+  ADMIN
+}
+
+enum RoomRole {
+  OWNER
+  MODERATOR
+  MEMBER
+}
+
+enum PeerStatus {
+  CONNECTED
+  DISCONNECTED
+}
+
+enum SignalType {
+  OFFER
+  ANSWER
+  ICE_CANDIDATE
+}

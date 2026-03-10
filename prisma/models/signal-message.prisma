@@ -1,0 +1,10 @@
+model SignalMessage {
+  id        String     @id @default(uuid())
+  type      SignalType
+  payload   Json
+
+  peerId    String
+  peer      Peer       @relation(fields: [peerId], references: [id])
+
+  createdAt DateTime   @default(now())
+}

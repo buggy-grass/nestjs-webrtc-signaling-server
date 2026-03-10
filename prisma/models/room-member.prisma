@@ -1,0 +1,13 @@
+model RoomMember {
+  id        String   @id @default(uuid())
+
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+
+  roomId    String
+  room      Room     @relation(fields: [roomId], references: [id])
+
+  role      RoomRole @default(MEMBER)
+
+  joinedAt  DateTime @default(now())
+}

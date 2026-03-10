@@ -1,0 +1,11 @@
+model CallLog {
+  id        String   @id @default(uuid())
+
+  roomId    String
+  room      Room     @relation(fields: [roomId], references: [id])
+
+  startedAt DateTime
+  endedAt   DateTime?
+
+  createdAt DateTime @default(now())
+}

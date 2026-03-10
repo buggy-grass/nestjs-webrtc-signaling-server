@@ -1,0 +1,17 @@
+model Peer {
+  id        String     @id @default(uuid())
+  socketId  String     @unique
+  status    PeerStatus @default(CONNECTED)
+
+  userId    String
+  user      User       @relation(fields: [userId], references: [id])
+
+  roomId    String
+  room      Room       @relation(fields: [roomId], references: [id])
+
+  messages           SignalMessage[]
+  iceCandidateCaches ICECandidateCache[]
+  mediaSessions       MediaSession[]
+
+  connectedAt DateTime @default(now())
+}

@@ -1,0 +1,12 @@
+model Room {
+  id        String   @id @default(uuid())
+  name      String?
+  isPrivate Boolean  @default(false)
+
+  createdAt DateTime @default(now())
+
+  peers        Peer[]
+  callLogs     CallLog[]
+  roomInvites  RoomInvite[]
+  roomMembers  RoomMember[]
+}

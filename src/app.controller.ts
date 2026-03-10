@@ -9,4 +9,13 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('config')
+  config() {
+    return {
+      nodeEnv: process.env.NODE_ENV,
+      port: process.env.PORT,
+      dbHostShown: process.env.NODE_ENV === 'development',
+    };
+  }
 }

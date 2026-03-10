@@ -1,0 +1,16 @@
+model RoomInvite {
+  id         String   @id @default(uuid())
+
+  roomId     String
+  room       Room     @relation(fields: [roomId], references: [id])
+
+  invitedBy  String
+  inviter    User     @relation(fields: [invitedBy], references: [id])
+
+  email      String?
+
+  token      String   @unique
+
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+}

@@ -1,0 +1,10 @@
+model ICECandidateCache {
+  id        String   @id @default(uuid())
+
+  peerId    String
+  peer      Peer     @relation(fields: [peerId], references: [id])
+
+  candidate Json
+
+  createdAt DateTime @default(now())
+}
