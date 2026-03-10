@@ -1,15 +1,16 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
-import { prisma } from './prisma'; // senin prisma instance export ettiğin dosya
+import type { PrismaClient } from '../../generated/prisma/client';
+import { prisma } from './prisma';
 
 @Injectable()
 export class PrismaService implements OnModuleInit {
-  private client = prisma;
+  private readonly client: PrismaClient = prisma;
 
   async onModuleInit() {
     await this.client.$connect();
   }
 
-  get db() {
+  get db(): PrismaClient {
     return this.client;
   }
 }

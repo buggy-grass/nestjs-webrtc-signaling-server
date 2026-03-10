@@ -9,7 +9,9 @@ model Peer {
   roomId    String
   room      Room       @relation(fields: [roomId], references: [id])
 
-  messages  SignalMessage[]
+  messages           SignalMessage[]
+  iceCandidateCaches ICECandidateCache[]
+  mediaSessions       MediaSession[]
 
   connectedAt DateTime @default(now())
 }
